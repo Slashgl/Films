@@ -1,12 +1,21 @@
 import React from "react";
 
 import "./List-films.css";
+import Film from "../Film/Film";
 
 const ListFilms = ({ data }) => {
-  console.log(data);
+    console.log(data)
+   const element = data.map(item => {
+        const {id} = item;
+        return(
+            <Film key={id}
+                item={item}
+            />
+        )
+    })
   return (
     <div className="movie">
-      <ul className="movie-list">{}</ul>
+      <div className="movie__list">{element}</div>
     </div>
   );
 };

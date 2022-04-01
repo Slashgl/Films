@@ -9,17 +9,15 @@ import MovieService from "../../services/services";
 export default class App extends Component {
   movieService = new MovieService();
   state = {
-    movie: [],
+    movies: [],
   };
 
   componentDidMount() {
     this.movieService.getAllMovie().then((movies) => {
-      movies.map((item) => {
-        return this.setState({
-          movie: [...item],
-        });
-      });
-    });
+        this.setState({
+          movies: [...movies]
+        })
+    })
   }
 
   render() {
@@ -27,7 +25,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <InputSearchMovie />
-        <ListFilms data={this.state.movie} />
+        <ListFilms data={this.state.movies} />
       </div>
     );
   }
