@@ -1,19 +1,16 @@
 import React, { Component } from "react";
+import { format } from 'date-fns'
 import "./Film.css";
 
 export default class Film extends Component {
   render() {
     const { item } = this.props;
-
+    const { title, overview,vote_average, release_date, poster_path} = item;
     const trimTheWord = (text) => {
-      const dot = text.split('').slice(-1) === '.'
-
+      return text.split(' ').slice(0, 30).join(' ').concat('...')
     }
 
 
-
-
-    const { title, overview,vote_average, release_date, poster_path} = item;
     return (
         <span className="film">
           <div className='film__contain'>
@@ -28,7 +25,7 @@ export default class Film extends Component {
                 </div>
               </div>
             </div>
-            <h3 className='film__release'>{release_date}</h3>
+            <h3 className='film__release'>{format(new Date(release_date), 'MMMM dd, yyyy')}</h3>
             <div className="film__genre">
               <div className="film__option"><span className='film__option-span'>Action</span></div>
               <div className="film__option"><span className='film__option-span'>Drama</span></div>

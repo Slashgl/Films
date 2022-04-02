@@ -4,12 +4,13 @@
     min-height: 290px;
     margin-top: 32px;
     box-shadow:  2px 2px #6c6666;
-
+    position: relative;
 }
 .film__info {
     margin-left: 20px;
 }
 .film__contain {
+
     width: 183px;
 }
 .film__img {
@@ -26,11 +27,15 @@
     font-size: 12px;
 }
 .film__header {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .film__circle {
+    position: absolute;
+    top: 12px;
+    right: 9px;
     width: 30px;
     height: 30px;
     border: 2px solid #E9D100;
@@ -63,4 +68,5 @@
     font-size: 12px;
     line-height: 22px;
     width: 220px;
+    margin-top: 10px;
 }

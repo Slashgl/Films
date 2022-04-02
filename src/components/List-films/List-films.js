@@ -5,7 +5,7 @@ import Film from "../Film/Film";
 
 const ListFilms = ({ data }) => {
     console.log(data)
-   const element = data.map(item => {
+   const element = data.slice(0, 6).map(item => {
         const {id} = item;
         return(
             <Film key={id}

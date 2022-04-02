@@ -23,9 +23,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <InputSearchMovie />
-        <ListFilms data={this.state.movies} />
+        <div className='App__wrapper'>
+            <Header />
+            <InputSearchMovie />
+            <ListFilms data={this.state.movies} />
+        </div>
       </div>
     );
   }
