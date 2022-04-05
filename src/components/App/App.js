@@ -9,15 +9,25 @@ import MovieService from "../../services/services";
 export default class App extends Component {
   movieService = new MovieService();
   state = {
-    movies: [],
+      movies: [],
+      loading: true,
+      error: false
   };
+    onError = () => {
+        this.setState({
+            error: true,
+            loading: false
+        })
+    }
 
   componentDidMount() {
     this.movieService.getAllMovie().then((movies) => {
         this.setState({
-          movies: [...movies]
+            movies: [...movies],
+            loading: false,
+            error: false,
         })
-    })
+    }).catch(this.onError)
   }
 
   render() {
@@ -26,7 +36,10 @@ export default class App extends Component {
         <div className='App__wrapper'>
             <Header />
             <InputSearchMovie />
-            <ListFilms data={this.state.movies} />
+            <ListFilms
+                data={this.state.movies}
+                loading={this.state.loading}
+                error={this.state.error}/>
         </div>
       </div>
     );
