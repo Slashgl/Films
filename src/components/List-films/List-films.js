@@ -3,10 +3,11 @@ import "./List-films.css";
 import Film from "../Film/Film";
 import Spinner from "../Spinner/Spinner";
 import ErrorIndicator from "../error-indicator";
+import InformationalIndicator from "../Informational-indicator/Informational-indicator";
 
 const ListFilms = ({ data, loading, error }) => {
 
-   const element = data.slice(0, 6).map(item => {
+   const element = data.map(item => {
         const {id} = item;
         return(
             <Film key={id}
@@ -15,9 +16,11 @@ const ListFilms = ({ data, loading, error }) => {
         )
     })
     const hasData = !(loading || error)
+    const dontData = !loading && element.length === 0
     const spinner = loading ? <Spinner/> : null;
     const content = hasData ? element : null;
     const errorIndicator = error ? <ErrorIndicator/> : null;
+    const infoIndicator = dontData ? <InformationalIndicator />: null
 
   return (
     <div className="movie">
@@ -25,6 +28,7 @@ const ListFilms = ({ data, loading, error }) => {
           {errorIndicator}
           {spinner}
           {content}
+          {infoIndicator}
       </div>
     </div>
   );
