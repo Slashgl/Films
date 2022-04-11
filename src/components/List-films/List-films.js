@@ -5,13 +5,13 @@ import Spinner from "../Spinner/Spinner";
 import ErrorIndicator from "../error-indicator";
 import InformationalIndicator from "../Informational-indicator/Informational-indicator";
 
-const ListFilms = ({ data, loading, error }) => {
-
+const ListFilms = ({ data, loading, error, guestSessionId }) => {
    const element = data.map(item => {
         const {id} = item;
         return(
             <Film key={id}
                 item={item}
+                guestSessionId={guestSessionId}
             />
         )
     })
@@ -23,14 +23,12 @@ const ListFilms = ({ data, loading, error }) => {
     const infoIndicator = dontData ? <InformationalIndicator />: null
 
   return (
-    <div className="movie">
-      <div className="movie__list">
+      <div className="card-list">
           {errorIndicator}
           {spinner}
           {content}
           {infoIndicator}
       </div>
-    </div>
   );
 };
 

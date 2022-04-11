@@ -1,14 +1,16 @@
 import React from "react";
 import "./Header.css";
+import {Tabs} from "antd";
 
-const Header = () => {
+const Header = ({changeTab}) => {
+    const { TabPane } = Tabs
   return (
     <>
       <div className="header">
-        <div className="header__container">
-          <div className="header__item search">Search</div>
-          <div className="header__item rated">Rated</div>
-        </div>
+        <Tabs defaultActiveKey="1" onChange={changeTab}>
+          <TabPane tab="Search" key="1"/>
+          <TabPane tab="Rated" key="2"/>
+        </Tabs>
       </div>
     </>
   );
