@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
 
 const { Provider: GenresListProvider, Consumer: GenresListConsumer } = React.createContext();
-export {GenresListProvider, GenresListConsumer}
+
+export { GenresListProvider, GenresListConsumer };
